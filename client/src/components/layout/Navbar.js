@@ -2,23 +2,23 @@ import React, {Fragment, useContext} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
-import ContactContext from '../../context/contact/contactContext';
+import LiftContext from '../../context/lift/liftContext';
 
 export const Navbar = ({title, icon}) => {
     const authContext = useContext(AuthContext)
-    const contactContext = useContext(ContactContext)
+    const liftContext = useContext(LiftContext)
 
     const {isAuthenticated, logout, user} = authContext; 
-    const {clearContacts} = contactContext
+    const {clearLifts} = liftContext
 
     const onLogout = () => {
         logout();
-        clearContacts();
+        clearLifts();
     };
 
     const authLinks = (
         <Fragment>
-            <li>Hello {user && user.name} </li>
+            <li>Welcome, {user && user.name} </li>
             <li>
                 <a onClick={onLogout} href="#!">
                     <i className="fas fa-sign-out-alt"></i>
@@ -42,7 +42,11 @@ export const Navbar = ({title, icon}) => {
         <div className="navbar bg-primary">
             <h1>
                 <i className={icon}>
-                    {title}
+                    
+                </i>
+                {title}
+                <i className={icon}>
+                    
                 </i>
             </h1>
             <ul>
@@ -60,8 +64,8 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps ={
-    title: 'Strive',
-    icon: 'fas fa-id-card-alt'
+    title: 'LiftIt',
+    icon: 'fas fa-dumbbell'
 }
 
 export default Navbar;

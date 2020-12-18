@@ -15,7 +15,7 @@ app.use(express.json({extended: false})) //now we can accept body data
 //Define Routes
 app.use('/api/users', require('./routes/users'))
 app.use('/api/auth', require('./routes/auth'))
-app.use('/api/contacts', require('./routes/contacts'))
+app.use('/api/lifts', require('./routes/lifts'))
 
 //Serve static assets in production
 if(process.env.NODE_ENV === 'production') {

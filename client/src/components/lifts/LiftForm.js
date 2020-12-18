@@ -1,40 +1,40 @@
 import React, {useState, useContext, useEffect} from 'react';
-import ContactContext from '../../context/contact/contactContext';
+import LiftContext from '../../context/lift/liftContext';
 
-const ContactForm = () => {
-    const contactContext = useContext(ContactContext);
+const LiftForm = () => {
+    const liftContext = useContext(LiftContext);
 
-    const {addContact, updateContact, clearCurrent, current} = contactContext;
+    const {addLift, updateLift, clearCurrent, current} = liftContext;
 
     useEffect(() => {
         if(current !== null) {
-            setContact(current);
+            setLift(current);
         } else {
-        setContact({
+        setLift({
             name: '',
-            email: '',
-            phone: '', 
+            weight: '',
+            reps: '', 
             type: 'personal' //default val
         });
         }
-    }, [contactContext, current])
+    }, [liftContext, current])
 
-    const [contact, setContact] = useState({
+    const [lift, setLift] = useState({
         name: '',
-        email: '',
-        phone: '', 
+        weight: '',
+        reps: '', 
         type: 'personal' //default val
     });
-    const {name, email, phone, type} = contact;
+    const {name, weight, reps, type} = lift;
 
-    const onChange = e => setContact({...contact, [e.target.name]: e.target.value}); 
+    const onChange = e => setLift({...lift, [e.target.name]: e.target.value}); 
 
     const onSubmit = e => {
         e.preventDefault();
         if(current === null) {
-            addContact(contact);
+            addLift(lift);
         } else {
-            updateContact(contact);
+            updateLift(lift);
         }
         
         clearAll();
@@ -56,17 +56,20 @@ const ContactForm = () => {
 
             <input 
             type="number" 
-            placeholder="Weight (lb)" 
-            name="email" 
-            value={email} 
+            placeholder="Weight (lb)"
+            min={1} 
+            name="weight" 
+            value={weight} 
             onChange={onChange}/>
 
             <input 
             type="number" 
+            min={1}
             placeholder="Reps" 
-            name="phone" 
-            value={phone} 
-            onChange={onChange}/>
+            name="reps" 
+            value={reps} 
+            onChange={onChange}
+            />
 
             
 
@@ -86,4 +89,4 @@ const ContactForm = () => {
     )
 }
 
-export default ContactForm;
+export default LiftForm;

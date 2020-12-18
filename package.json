@@ -1,7 +1,7 @@
 {
-  "name": "contact-keeper",
+  "name": "lift-keeper",
   "version": "1.0.0",
-  "description": "Contact manager app",
+  "description": "Lift tracker app",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

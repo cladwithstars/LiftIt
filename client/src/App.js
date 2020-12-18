@@ -9,7 +9,7 @@ import Login from './components/auth/Login';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
 
-import ContactState from './context/contact/ContactState';
+import LiftState from './context/lift/LiftState';
 import AuthState from './context/auth/AuthState'
 import AlertState from './context/alert/AlertState'
 import setAuthToken from './utils/setAuthToken';
@@ -22,7 +22,7 @@ if (localStorage.token) {
 const App = () => {
   return (
     <AuthState>
-    <ContactState>
+    <LiftState>
     <AlertState>
     <Router>
       <Fragment>
@@ -39,7 +39,7 @@ const App = () => {
       </Fragment>
       </Router>
       </AlertState>
-      </ContactState>
+      </LiftState>
       </AuthState>
   );
 }

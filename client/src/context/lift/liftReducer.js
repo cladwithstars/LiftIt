@@ -1,51 +1,51 @@
 import {
-    GET_CONTACTS,
-    ADD_CONTACT,
-    DELETE_CONTACT,
+    GET_LIFTS,
+    ADD_LIFT,
+    DELETE_LIFT,
     SET_CURRENT,
     CLEAR_CURRENT,
-    UPDATE_CONTACT,
-    FILTER_CONTACTS,
+    UPDATE_LIFT,
+    FILTER_LIFTS,
     CLEAR_FILTER,
-    CONTACT_ERROR,
-    CLEAR_CONTACTS
+    LIFT_ERROR,
+    CLEAR_LIFTS
 } from '../types'
 
 export default (state, action) => {
     switch(action.type) {
-        case GET_CONTACTS: {
+        case GET_LIFTS: {
             return {
                 ...state,
-                contacts: action.payload,
+                lifts: action.payload,
                 loading: false
             }
         }
-        case ADD_CONTACT:
+        case ADD_LIFT:
             return {
                 ...state, 
-                contacts: [action.payload,...state.contacts],
+                lifts: [action.payload,...state.lifts],
                 loading: false
             }
-        case DELETE_CONTACT:
+        case DELETE_LIFT:
             return {
                 ...state,
-                contacts: state.contacts.filter(contact => contact._id !== action.payload),
+                lifts: state.lifts.filter(lift => lift._id !== action.payload),
                 loading: false
             };
-        case CLEAR_CONTACTS:
+        case CLEAR_LIFTS:
             return {
                 ...state,
-                contacts: [], 
+                lifts: [], 
                 filtered: null,
                 error: null,
                 current: null
             }
-        case UPDATE_CONTACT:
+        case UPDATE_LIFT:
             return {
                 ...state,
                 loading: false,
-                contacts: state.contacts.map(contact => contact._id === action.payload._id ?
-                    action.payload : contact) //only update the one being edited. Else return all else the same
+                lifts: state.lifts.map(lift => lift._id === action.payload._id ?
+                    action.payload : lift) //only update the one being edited. Else return all else the same
             }
         case SET_CURRENT:
             return {
@@ -57,12 +57,12 @@ export default (state, action) => {
                 ...state, 
                 current: null
             };
-        case FILTER_CONTACTS:
+        case FILTER_LIFTS:
             return {
                 ...state,
-                filtered: state.contacts.filter(contact => {
+                filtered: state.lifts.filter(lift => {
                     const regex = new RegExp(`${action.payload}`, 'gi');
-                    return contact.name.match(regex) || contact.email.match(regex);
+                    return lift.name.match(regex)
                 })
             }
         case CLEAR_FILTER:
@@ -70,7 +70,7 @@ export default (state, action) => {
                 ...state, 
                 filtered: null
             };
-        case CONTACT_ERROR:
+        case LIFT_ERROR:
             return {
                 ...state,
                 error: action.payload

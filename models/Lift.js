@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ContactSchema = mongoose.Schema({
+const LiftSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
@@ -9,12 +9,13 @@ const ContactSchema = mongoose.Schema({
         type: String,
         required: true
     }, 
-    email: {
-        type: String,
+    weight: {
+        type: Number,
         required: true,
     }, 
-    phone: {
-        type: String,
+    reps: {
+        type: Number,
+        required: true,
     }, 
     type: {
         type: String,
@@ -26,4 +27,4 @@ const ContactSchema = mongoose.Schema({
     }, 
 });
 
-module.exports = mongoose.model('contact', ContactSchema);
+module.exports = mongoose.model('lift', LiftSchema);

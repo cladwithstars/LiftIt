@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
-import Contacts from '../contacts/Contacts'
-import ContactForm from '../contacts/ContactForm'
-import ContactFilter from '../contacts/ContactFilter'
+import Lifts from '../lifts/Lifts'
+import LiftForm from '../lifts/LiftForm'
+import LiftFilter from '../lifts/LiftFilter'
 import AuthContext from '../../context/auth/authContext'
 const Home = () => {
     const authContext = useContext(AuthContext);
@@ -13,11 +13,11 @@ const Home = () => {
     return (
         <div className="grid-2">
             <div>
-                <ContactForm/>
+                <LiftForm/>
             </div>
             <div>
-                <ContactFilter/>
-                <Contacts />
+                <LiftFilter/>
+                <Lifts />
             </div>
         </div>
     )

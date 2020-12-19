@@ -8,8 +8,3 @@ A fullstack app with user authentication to track your progress as a weightlifte
 I built this in the MERN stack: React on the frontend and Node.js, Express and MongoDB in the back.
 
 
-If you wanted to run it locally you would have to set up your own mongoDB database (e.g. with MongoDB Atlas), put your credentials in the config folder, and then do: 
-
->npm install
-----------------
->npm run dev

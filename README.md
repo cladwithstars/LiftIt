@@ -9,4 +9,5 @@ I built this in the MERN stack: React on the frontend and Node.js, Express and M
 If you wanted to run it locally you would have to set up your own mongoDB database (e.g. with MongoDB Atlas), put your credentials in the config folder, and then do: 
 
 >npm install
->np run dev
+----------------
+>npm run dev
